@@ -16,33 +16,12 @@
 
     <main class="container">
       <video class="movie">
-        <source src="./assets/BigBuckBunny.mp4" />
+        <source src="https://youtu.be/XXYlFuWEuKI" type="video/mp4"  />
       </video>
 
       <button>Play/Pause</button>
     </main>
 
-    <script>
-      const video = document.querySelector("video")
-      const button = document.querySelector("button")
-
-	  function MediaPlayer(config){
-		    this.media = config.el
-	  }
-		
-	  MediaPlayer.prototype.play = function(){
-      var isPaused = media.paused
-      (isPaused)
-      ?this.media.play():
-      this.media.pause();
-      
-	  }
-	 
-const player = new MediaPlayer({el:video});
-
-      button.onclick= ()=>video.play;
-    
-
-    </script>
+    <script src="./assets/index.js"></script>
   </body>
 </html>
