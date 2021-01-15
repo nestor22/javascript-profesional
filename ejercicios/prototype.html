@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function Hero(name){
+            const hero = {
+                name:name
+            };
+        
+            hero.saludar = function(){
+                console.log(`hola soy ${this.name}`);
+            }
+            return hero ;
+        }
+
+        const zelda = Hero('zelda');
+        zelda.saludar();
+
+        const link=Hero('link');
+        link.saludar();
+
+
+
+        //// la version ineficiente 
+
+        const heroMethos = {
+            saludar: function(){
+                console.log(`hola soy ${this.name}`)
+
+            },
+        };
+
+        function Hero(name){
+            const hero = {
+                name:name
+            };
+        
+            hero.saludar = heroMethos.saludar;
+            return hero ;
+        }
+
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>

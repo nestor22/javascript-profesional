@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+</head>
+<body>
+        
+		<script>
+
+				function saludar(){
+					consola.log(`hola mi apellido es ${this.apellido}`)
+				}
+			const richar = {
+				apellido: "gonsalez"
+			}
+			
+			saludar.call(richard)
+				// tiene el this de una llamda de un objeto 
+
+			function caminar(metros, direccion){
+					console.log(`${this.name} camina ${metros} en direccion ${direccion}`)
+			}
+			caminar.call(richard, 400, "norte");
+///ahora con aplyu 
+		///	caminar.apply(richard, [metros, direccion])
+			caminar.apply(richard, [899, "este"])
+				
+			const daniel ={
+			name:"daniel",
+					
+			}
+			const danielSaluda = saludar.bind(daniel);
+			const danielCamina = caminar.bind(daniel);
+
+			danielSaluda();
+			danielCamina(399,"metroe");
+			const danielCamina = caminar.bind(daniel, 2000);
+			danielCamina("este")// es una tecnica funcional llamada tuning solo se envian valores parcieles y existen varias formas de hacer 
+			
+		</script>
+
+</body>
+</html>
