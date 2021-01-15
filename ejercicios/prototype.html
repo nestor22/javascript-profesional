@@ -8,7 +8,7 @@
 <body>
 
     <script>
-        function Hero(name){
+        /* function Hero(name){
             const hero = {
                 name:name
             };
@@ -23,13 +23,13 @@
         zelda.saludar();
 
         const link=Hero('link');
-        link.saludar();
+        link.saludar(); */
 
 
 
         //// la version ineficiente 
 
-        const heroMethos = {
+       /*  const heroMethos = {
             saludar: function(){
                 console.log(`hola soy ${this.name}`)
 
@@ -43,10 +43,59 @@
         
             hero.saludar = heroMethos.saludar;
             return hero ;
+        } */
+        // la version mucho mas eficiene que la anterior 
+
+
+        //const nuevoObjeto = Object.crete(objeto)-> da super poderes 
+/* 
+        const heroMethos = {
+            saludar: function(){
+                console.log(`hola soy ${this.name}`)
+
+            },
+        };
+
+        function Hero(name){
+           const hero = Object.create(heroMethos)
+           hero.name = name;
+            return hero ;
+        }
+ */
+
+        // optimizcion de metodos 
+
+
+/* 
+        function Hero(name){
+           const hero = Object.create(Hero.prototype)
+           hero.name = name;
+            return hero ;
+        }
+
+        Hero.prototype.saludar = function(){
+            console.log(`soy un super herore ${this.name}`)
+
+        } */
+/// new properties 
+
+    function Hero(name){
+        // this = object.create(hero.prototype) -> implicitol
+           this.name = name;
+            //return hero -> implicito ;
+        }
+
+        Hero.prototype.saludar = function(){
+            console.log(`soy un super herore ${this.name}`)
+
         }
 
 
+        const zelda = new Hero('zelda');
+        zelda.saludar();
 
+        const link= new Hero('link');
+        link.saludar();
 
 
 
