@@ -69,14 +69,37 @@ async function getTopMoviesIds(n=3){
 
         const movies = Promise.all(moviePromises)
 
-        return movies
+        return movies;
 
     }
-    async function getFastestTopMovie(){
-        const ids = awaitgetTopMoviesIds()
-        const moviePromises = id.map(id=>getMovie(id))
-        const movie = await Promise.race(moviePromises)
+    async function getFastestTopMoviefastest(){
+        const ids = await getTopMoviesIds();
+        const moviePromises = id.map(id=>getMovie(id));
+        const movie = await Promise.race(moviePromises);
+        return movie;
+
     }
+
+
+    
+
+
+    //despliege de las enteriores 
+    document.getElementById('sequence').onclick = async function(){
+        const movies = await getTopMoviesInSequence();
+        renderMovies(movies);
+    }
+
+    document.getElementById('parallel').onclick = async function(){
+        const movies = await getTopMoviesInParallel();
+        renderMovies(movies);
+    }
+
+    document.getElementById('fastest').onclick = async function(){
+        const movies = await getTopMoviesInfastest();
+        renderMovies([movies]);
+    }
+    
 
 
 
