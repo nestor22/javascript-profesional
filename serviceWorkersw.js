@@ -1,3 +1,4 @@
+const VERSION = "V1"
 self.addEventListener('install', event=>{
     //creamos precache 
     //lista de recursos y assets para tener listas en cache 
@@ -15,25 +16,41 @@ self.addEventListener('fetch', event=>{
     }
     //REPONDEMOS CON UNA REPUESTA CACHEADA 
     event.respondWith(cacheresponse(request))
+    event.waitUntil(updateCache(request))
 
 })
 
 
+
+
 async function precache(){
 //se usa api del dom caches 
-    const cache = caches.open('V1')
+    const cache = await caches.open(VERSION)
    return cache.addAll([
        '/',
        '/indles.hamtl',
        '/assets/index.js'
        '/assets/MediaPlayer.js'
+       //aqui van todos los archivos que hemos escrito 
    ])
+
+
+}
+
+
+
+
+async function updateCache(request){
+    const cach = await caches.open(VERSION);
+    const response = await fetch(request)
+    return cache.put(request, reponse)
 
 }
 
 
 async function cacheREsponse(request){
-    const cache = await caches.open("V1")
+    const cache = await caches.open(VERSION)
     const response = await cache.match(request )
-    return response || fetch(reuqest)
+    return response || fetch(request)// se hace si el documento no tiene cacheado dl sapito 
+
 }

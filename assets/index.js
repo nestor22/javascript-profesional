@@ -7,3 +7,13 @@ const player = new MediaPlayer({el:video, plugins:[
 ]});
 const button = document.querySelector("button")
 button.onclick= ()=>video.play;
+
+
+// service worker 
+//interceptan peticiones 
+//guardan en cache las peteciones 
+ if ('serviceWorker' in navigator ){
+   navigator.serviceWorker.register('/sw.js').catch(error=>{
+     console.log(error.message);
+   })
+ }
