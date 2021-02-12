@@ -94,3 +94,4 @@ function fullName2(firstName: String, lastName: string = 'smit'): string{// se p
 }
 
 const richard = fullName("ricahr","cufma")
+
