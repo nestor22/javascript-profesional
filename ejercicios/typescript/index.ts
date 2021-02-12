@@ -59,3 +59,38 @@ comodin = {type:'wildcard'}
 let someObject: object = {type:'object'}
 
 
+
+//funcion ees
+function add(a: number, b: number): number{
+
+    return a+b;
+}
+
+
+const suma = add(3,2);
+
+
+//funcione sque debuelve funciones 
+function createAdder(a: number): (number)=>number {//asi sabe que debuelve un numero
+    return function(b:number) {
+        return b+a;
+    }
+}
+
+const addFour = createAdder(4);
+const fourplues6 = addFour(6);
+
+
+function fullName(firstName: String, lastName?: string): string{// hace que quisa o no este el dato con un ?
+    return`${firstName} ${lastName}`;
+
+}
+
+
+
+function fullName2(firstName: String, lastName: string = 'smit'): string{// se pone por defecto 
+    return`${firstName} ${lastName}`;
+
+}
+
+const richard = fullName("ricahr","cufma")
